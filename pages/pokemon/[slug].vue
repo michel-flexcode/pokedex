@@ -10,6 +10,7 @@ const query = gql`
       publishedAt
       updatedAt
       stage
+      pdv
       image {
         url(
           transformation: {
@@ -61,10 +62,12 @@ pokemon.value = data.value.pokemon;
     <Meta name="twitter:image" :content="pokemon.image.url" />
   </Head>
 
+  <!-- commentaire : ici est l'affichage réel -->
   <div v-if="pokemon" class="max-w-lg space-y-8 mx-auto">
     <NuxtImg class="" :src="pokemon.image.url" :alt="pokemon.nom" />
     <h2 class="text-3xl text-center">{{ pokemon.nom }}</h2>
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
+    <p class="text-justify text-red-950">{{ pokemon.pdv }}</p>
   </div>
   <div v-else>
     <li>Loading...</li>

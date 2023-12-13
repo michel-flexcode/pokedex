@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint: "https://eu-central-1-shared-euc1-02.cdn.hygraph.com/content/clpd3clevd29e01uie0ob3skk/master",
+        httpEndpoint: "https://eu-central-1-shared-euc1-02.cdn.hygraph.com/content/clq3ra3t9anre01uhazdv1t9v/master",
       },
     },
   },

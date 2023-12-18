@@ -26,7 +26,6 @@ const query = gql`
         image {
           url
         }
-      }
     }
   }
 `;

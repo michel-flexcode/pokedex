@@ -2,22 +2,28 @@
 const query = gql`
   query Pokemon($slug: String!) {
     pokemon(where: { slug: $slug }) {
-      id
-      nom
-      slug
       description
-      createdAt
-      publishedAt
-      updatedAt
-      stage
-      pdv
+      height
+      id
       image {
-        url(
-          transformation: {
-            image: { resize: { fit: crop, height: 1024, width: 1024 } }
-            document: { output: { format: webp } }
-          }
-        )
+        url(transformation: {})
+      }
+      typepokemonA {
+        color
+        nom
+        image {
+          url
+        }
+      }
+      slug
+      pdv
+      nom
+      typepokemonB {
+        color
+        nom
+        image {
+          url
+        }
       }
     }
   }
@@ -29,6 +35,7 @@ const { data } = await useAsyncQuery(query, {
   slug: route.params.slug,
 });
 console.log(data.value);
+console.log(data.value.pokemon.pokemonTypeA);
 pokemon.value = data.value.pokemon;
 </script>
 
@@ -68,6 +75,16 @@ pokemon.value = data.value.pokemon;
     <h2 class="text-3xl text-center">{{ pokemon.nom }}</h2>
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
     <p class="text-justify text-red-950">{{ pokemon.pdv }}</p>
+    <!-- Check if typeA exists before accessing its properties -->
+    <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
+      {{ pokemon.typepokemonA.nom }}
+    </p>
+    <p v-else class="text-justify text-red-950">No TypeA available</p>
+    <!-- Check if typeB exists before accessing its properties -->
+    <p v-if="pokemon.typepokemonB" class="text-justify text-red-950">
+      {{ pokemon.typepokemonB.nom }}
+    </p>
+    <p v-else class="text-justify text-red-950">No TypeB available</p>
   </div>
   <div v-else>
     <li>Loading...</li>

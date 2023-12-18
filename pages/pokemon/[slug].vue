@@ -4,6 +4,8 @@ const query = gql`
     pokemon(where: { slug: $slug }) {
       description
       height
+      weight
+      color
       id
       image {
         url(transformation: {})
@@ -75,6 +77,10 @@ pokemon.value = data.value.pokemon;
     <h2 class="text-3xl text-center">{{ pokemon.nom }}</h2>
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
     <p class="text-justify text-red-950">{{ pokemon.pdv }}</p>
+    <p class="text-justify text-red-950">{{ pokemon.weight }}</p>
+    <p class="text-justify text-red-950">{{ pokemon.height }}</p>
+    <p class="text-justify text-red-950">{{ pokemon.color }}</p>
+
     <!-- Check if typeA exists before accessing its properties -->
     <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
       {{ pokemon.typepokemonA.nom }}

@@ -28,9 +28,13 @@ pokemons.value = data.value.pokemons;
 </script>
 
 <template>
-  <div class="flex justify-center items-center space-y-4">
-    <ul v-if="pokemons">
-      <li v-for="pokemon in pokemons" :key="pokemon.id">
+  <div class="grid grid-cols-15 gap-4">
+    <ul v-if="pokemons" class="flex flex-wrap gap-4">
+      <li
+        v-for="pokemon in pokemons"
+        :key="pokemon.id"
+        class="flex-shrink-0 w-1/15"
+      >
         <NuxtLink :to="`/pokemon/${pokemon.slug}`">
           <NuxtImg :src="pokemon.image.url" :alt="pokemon.nom" />
           <h2 class="text-1xl text-center">{{ pokemon.nom }}</h2>

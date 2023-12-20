@@ -2,6 +2,10 @@
 const query = gql`
   query Pokemon($slug: String!) {
     pokemon(where: { slug: $slug }) {
+      attaques {
+        degat
+        nom
+      }
       description
       height
       weight
@@ -80,6 +84,10 @@ pokemon.value = data.value.pokemon;
     <p class="text-justify text-red-950">{{ pokemon.weight }}</p>
     <p class="text-justify text-red-950">{{ pokemon.height }}</p>
     <p class="text-justify text-red-950">{{ pokemon.color }}</p>
+
+    <p v-for="attaque in pokemon.attaques" class="text-justify text-red-950">
+      {{ attaque.nom }}
+    </p>
 
     <!-- Check if typeA exists before accessing its properties -->
     <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">

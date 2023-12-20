@@ -5,6 +5,12 @@ const query = gql`
       attaques {
         degat
         nom
+        description
+        typepokemon {
+          image {
+            url(transformation: {})
+          }
+        }
       }
       description
       height
@@ -85,11 +91,29 @@ pokemon.value = data.value.pokemon;
     <p class="text-justify text-red-950">{{ pokemon.height }}</p>
     <p class="text-justify text-red-950">{{ pokemon.color }}</p>
 
-    <p v-for="attaque in pokemon.attaques" class="text-justify text-red-950">
+    <p>Capacités :</p>
+    <div v-for="attaque in pokemon.attaques" :key="attaque.nom">
+      <p>Attaque :</p>
       {{ attaque.nom }}
-    </p>
+      <p>Dégats :</p>
+      {{ attaque.degat }}
+      <p>Description :</p>
+      {{ attaque.description }}
+      <p>Type d'attaque :</p>
+
+      <div v-if="attaque.typepokemon">
+        <img
+          v-if="attaque.typepokemon.image"
+          :src="attaque.typepokemon.image.url"
+          :alt="attaque.typepokemon.nom"
+        />
+        <p v-if="attaque.typepokemon.nom">{{ attaque.typepokemon.nom }}</p>
+      </div>
+      <div v-else>No typepokemon available</div>
+    </div>
 
     <!-- Check if typeA exists before accessing its properties -->
+    <p>Pokemon de type :</p>
     <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
       {{ pokemon.typepokemonA.nom }}
     </p>
@@ -98,7 +122,7 @@ pokemon.value = data.value.pokemon;
     <p v-if="pokemon.typepokemonB" class="text-justify text-red-950">
       {{ pokemon.typepokemonB.nom }}
     </p>
-    <p v-else class="text-justify text-red-950">No TypeB available</p>
+    <p v-else class="text-justify text-red-950"></p>
   </div>
   <div v-else>
     <li>Loading...</li>

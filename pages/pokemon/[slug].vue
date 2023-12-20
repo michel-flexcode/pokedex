@@ -107,7 +107,7 @@ pokemon.value = data.value.pokemon;
       <img :src="attaque.image.url" :alt="attaque.nom" />
       <p>Type de l'attaque :</p>
       <!-- {{ attaque.image.url }} -->
-      {{ attaque.typepokemon }}
+      <img :src="attaque.typepokemon.image.url" :alt="attaque.nom" />
       <!-- <img :src="attaque.typepokemon.image" :alt="attaque.nom" /> -->
 
       <!-- Check if typeA exists before accessing its properties -->

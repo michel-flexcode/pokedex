@@ -109,17 +109,12 @@ pokemon.value = data.value.pokemon;
       <!-- {{ attaque.image.url }} -->
       <img :src="attaque.typepokemon.image.url" :alt="attaque.nom" />
       <!-- <img :src="attaque.typepokemon.image" :alt="attaque.nom" /> -->
-
-      <!-- Check if typeA exists before accessing its properties -->
-      <p>Pokemon de type :</p>
-      <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
-        {{ pokemon.typepokemonA.nom }}
-      </p>
     </div>
     <!-- Check if typeA exists before accessing its properties -->
     <p>Pokemon de type :</p>
     <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
       {{ pokemon.typepokemonA.nom }}
+      <!-- <img :src="pokemon.TypepokemonA.image.url" :alt="attaque.nom" /> -->
     </p>
     <p v-else class="text-justify text-red-950">No TypeA available</p>
     <!-- Check if typeB exists before accessing its properties -->

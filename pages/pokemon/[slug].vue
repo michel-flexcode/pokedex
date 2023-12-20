@@ -6,6 +6,9 @@ const query = gql`
         degat
         nom
         description
+        image {
+          url(transformation: {})
+        }
         typepokemon {
           image {
             url(transformation: {})
@@ -99,19 +102,20 @@ pokemon.value = data.value.pokemon;
       {{ attaque.degat }}
       <p>Description :</p>
       {{ attaque.description }}
-      <p>Type d'attaque :</p>
+      <p>Image de l'attaque :</p>
+      <!-- {{ attaque.image.url }} -->
+      <img :src="attaque.image.url" :alt="attaque.nom" />
+      <p>Type de l'attaque :</p>
+      <!-- {{ attaque.image.url }} -->
+      {{ attaque.typepokemon }}
+      <!-- <img :src="attaque.typepokemon.image" :alt="attaque.nom" /> -->
 
-      <div v-if="attaque.typepokemon">
-        <img
-          v-if="attaque.typepokemon.image"
-          :src="attaque.typepokemon.image.url"
-          :alt="attaque.typepokemon.nom"
-        />
-        <p v-if="attaque.typepokemon.nom">{{ attaque.typepokemon.nom }}</p>
-      </div>
-      <div v-else>No typepokemon available</div>
+      <!-- Check if typeA exists before accessing its properties -->
+      <p>Pokemon de type :</p>
+      <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
+        {{ pokemon.typepokemonA.nom }}
+      </p>
     </div>
-
     <!-- Check if typeA exists before accessing its properties -->
     <p>Pokemon de type :</p>
     <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">

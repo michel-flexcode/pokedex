@@ -122,21 +122,28 @@ pokemon.value = data.value.pokemon;
 
     <p class="text-justify text-black-950">{{ pokemon.description }}</p>
 
-    <p>Capacités :</p>
-    <div v-for="attaque in pokemon.attaques" :key="attaque.nom">
-      <p>Attaque :</p>
-      {{ attaque.nom }}
-      <p>Dégats :</p>
-      {{ attaque.degat }}
-      <p>Description :</p>
-      {{ attaque.description }}
-      <p>Image de l'attaque :</p>
-      <!-- {{ attaque.image.url }} -->
-      <img :src="attaque.image.url" :alt="attaque.nom" />
-      <p>Type de l'attaque :</p>
-      <!-- {{ attaque.image.url }} -->
-      <img :src="attaque.typepokemon.image.url" :alt="attaque.nom" />
-      <!-- <img :src="attaque.typepokemon.image" :alt="attaque.nom" /> -->
+    <h2 class="text-3xl text-center">Capacités :</h2>
+
+    <div
+      class="rounded-full h-8"
+      v-for="attaque in pokemon.attaques"
+      :key="attaque.nom"
+    >
+      <div class="flex justify-between">
+        <img
+          class="rounded-full w-8 h-8"
+          :src="attaque.typepokemon.image.url"
+          :alt="attaque.typepokemon.image.url"
+        />
+        <p>{{ attaque.nom }}</p>
+        <p>dégat :{{ attaque.degat }}</p>
+        <img
+          class="rounded-full w-8 h-8"
+          :src="attaque.image.url"
+          :alt="attaque.nom"
+        />
+      </div>
+      <p class="text-center">{{ attaque.description }}</p>
     </div>
   </div>
   <div v-else>

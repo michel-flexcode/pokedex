@@ -101,6 +101,7 @@ pokemon.value = data.value.pokemon;
           class="rounded-full w-8 h-8"
         />
         <img
+          v-if="pokemon.typepokemonB"
           :src="pokemon.typepokemonB.image.url"
           :alt="pokemon.typepokemonB.image.url"
           class="rounded-full w-8 h-8"

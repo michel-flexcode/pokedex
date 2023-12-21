@@ -89,7 +89,7 @@ pokemon.value = data.value.pokemon;
   <div
     v-if="pokemon"
     :style="{ backgroundColor: pokemon.color }"
-    class="max-w-lg mx-auto p-8 rounded-lg space-y-8 border-8 border-yellow-500"
+    class="max-w-xl mx-auto p-8 rounded-lg space-y-8 border-8 border-yellow-500"
   >
     <div class="flex justify-between">
       <h2 class="text-3xl text-left">{{ pokemon.nom }}</h2>
@@ -120,7 +120,7 @@ pokemon.value = data.value.pokemon;
       <p class="text-justify text-black-950 mx-4">{{ pokemon.color }}</p>
     </div>
 
-    <p class="text-justify text-black-950">{{ pokemon.description }}</p>
+    <p class="text-justify text-sm text-black-950">{{ pokemon.description }}</p>
 
     <h2 class="text-3xl text-center">Capacités :</h2>
 

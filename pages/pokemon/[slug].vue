@@ -93,7 +93,7 @@ pokemon.value = data.value.pokemon;
   >
     <div class="flex justify-between">
       <h2 class="text-3xl text-left">{{ pokemon.nom }}</h2>
-      <div class="flex justify-between">
+      <div class="flex justify-between rounded-full w-12 h-12">
         <p class="text-justify text-red-950">{{ pokemon.pdv }} HP</p>
         <img
           :src="pokemon.typepokemonA.image.url"

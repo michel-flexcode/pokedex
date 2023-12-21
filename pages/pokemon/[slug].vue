@@ -94,7 +94,7 @@ pokemon.value = data.value.pokemon;
     <div class="flex justify-between">
       <h2 class="text-3xl text-left">{{ pokemon.nom }}</h2>
       <div class="flex justify-between rounded-full h-8">
-        <p class="text-justify text-red-950">{{ pokemon.pdv }} HP</p>
+        <p class="text-justify text-black-950">{{ pokemon.pdv }} HP</p>
         <img
           :src="pokemon.typepokemonA.image.url"
           :alt="pokemon.typepokemonA.image.url"
@@ -120,28 +120,7 @@ pokemon.value = data.value.pokemon;
       <p class="text-justify text-black-950 mx-4">{{ pokemon.color }}</p>
     </div>
 
-    <p class="text-justify text-red-950">{{ pokemon.description }}</p>
-
-    <!-- Check if typeA exists before accessing its properties -->
-    <p>Pokemon de type :</p>
-    <p v-if="pokemon.typepokemonA" class="text-justify text-red-950">
-      {{ pokemon.typepokemonA.nom }}
-      <img
-        :src="pokemon.typepokemonA.image.url"
-        :alt="pokemon.typepokemonA.image.url"
-      />
-    </p>
-    <p v-else class="text-justify text-red-950">No TypeA available</p>
-
-    <!-- Check if typeB exists before accessing its properties -->
-    <p v-if="pokemon.typepokemonB" class="text-justify text-red-950">
-      {{ pokemon.typepokemonB.nom }}
-      <img
-        :src="pokemon.typepokemonB.image.url"
-        :alt="pokemon.typepokemonB.image.url"
-      />
-    </p>
-    <p v-else class="text-justify text-red-950"></p>
+    <p class="text-justify text-black-950">{{ pokemon.description }}</p>
 
     <p>Capacités :</p>
     <div v-for="attaque in pokemon.attaques" :key="attaque.nom">

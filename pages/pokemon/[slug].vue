@@ -113,10 +113,14 @@ pokemon.value = data.value.pokemon;
       :src="pokemon.image.url"
       :alt="pokemon.nom"
     />
+
+    <div class="flex justify-between items-center bg-white rounded-2xl p-2 m-4">
+      <p class="text-justify text-black-950 mx-4">{{ pokemon.weight }} kg</p>
+      <p class="text-justify text-black-950">{{ pokemon.height }} cm</p>
+      <p class="text-justify text-black-950 mx-4">{{ pokemon.color }}</p>
+    </div>
+
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
-    <p class="text-justify text-red-950">{{ pokemon.weight }}</p>
-    <p class="text-justify text-red-950">{{ pokemon.height }}</p>
-    <p class="text-justify text-red-950">{{ pokemon.color }}</p>
 
     <!-- Check if typeA exists before accessing its properties -->
     <p>Pokemon de type :</p>

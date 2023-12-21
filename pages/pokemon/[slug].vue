@@ -86,11 +86,24 @@ pokemon.value = data.value.pokemon;
   </Head>
 
   <!-- commentaire : ici est l'affichage réel -->
-  <div v-if="pokemon" class="max-w-lg space-y-8 mx-auto">
+  <div
+    v-if="pokemon"
+    :style="{ backgroundColor: pokemon.color }"
+    class="max-w-lg mx-auto p-8 rounded-lg space-y-8 border-8 border-yellow-500"
+  >
+    <div class="flex justify-between">
+      <h2 class="text-3xl text-left">{{ pokemon.nom }}</h2>
+      <div class="flex justify-between">
+        <p class="text-justify text-red-950">{{ pokemon.pdv }} HP</p>
+        <img
+          :src="pokemon.typepokemonA.image.url"
+          :alt="pokemon.typepokemonA.image.url"
+          class="rounded-full w-12 h-12"
+        />
+      </div>
+    </div>
     <NuxtImg class="" :src="pokemon.image.url" :alt="pokemon.nom" />
-    <h2 class="text-3xl text-center">{{ pokemon.nom }}</h2>
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
-    <p class="text-justify text-red-950">{{ pokemon.pdv }}</p>
     <p class="text-justify text-red-950">{{ pokemon.weight }}</p>
     <p class="text-justify text-red-950">{{ pokemon.height }}</p>
     <p class="text-justify text-red-950">{{ pokemon.color }}</p>

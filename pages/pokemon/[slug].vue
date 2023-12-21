@@ -93,16 +93,25 @@ pokemon.value = data.value.pokemon;
   >
     <div class="flex justify-between">
       <h2 class="text-3xl text-left">{{ pokemon.nom }}</h2>
-      <div class="flex justify-between rounded-full w-12 h-12">
+      <div class="flex justify-between rounded-full h-8">
         <p class="text-justify text-red-950">{{ pokemon.pdv }} HP</p>
         <img
           :src="pokemon.typepokemonA.image.url"
           :alt="pokemon.typepokemonA.image.url"
-          class="rounded-full w-12 h-12"
+          class="rounded-full w-8 h-8"
+        />
+        <img
+          :src="pokemon.typepokemonB.image.url"
+          :alt="pokemon.typepokemonB.image.url"
+          class="rounded-full w-8 h-8"
         />
       </div>
     </div>
-    <NuxtImg class="" :src="pokemon.image.url" :alt="pokemon.nom" />
+    <NuxtImg
+      class="border-8 border-yellow-500 rounded-lg"
+      :src="pokemon.image.url"
+      :alt="pokemon.nom"
+    />
     <p class="text-justify text-red-950">{{ pokemon.description }}</p>
     <p class="text-justify text-red-950">{{ pokemon.weight }}</p>
     <p class="text-justify text-red-950">{{ pokemon.height }}</p>

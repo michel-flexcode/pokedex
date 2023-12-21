@@ -125,7 +125,7 @@ pokemon.value = data.value.pokemon;
     <h2 class="text-3xl text-center">Capacités :</h2>
 
     <div
-      class="rounded-full h-8"
+      class="rounded-full h-8 p-y"
       v-for="attaque in pokemon.attaques"
       :key="attaque.nom"
     >
